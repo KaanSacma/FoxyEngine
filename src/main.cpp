@@ -3,6 +3,8 @@
 int main(void)
 {
     Window window = Window("FoxyEngine", 3024, 1964, 60);
+    ViewPanel objectPanel = ViewPanel(ObjectPanel, sf::Vector2f(0, 0), sf::Vector2f(604, 1964), sf::Color(140,146,172));
+    ViewPanel propertiesPanel = ViewPanel(InspectorPanel, sf::Vector2f(3024 - 604, 0), sf::Vector2f(604, 1964), sf::Color(140,146,172));
 
     while(window._isRunning) {
         while (window.getRender().pollEvent(window._event)) {
@@ -11,7 +13,10 @@ int main(void)
         }
         window._deltaTime = 1.0f / window._frameRate;
         window.getRender().clear(sf::Color::Black);
-        // window.getRender().draw();
+        objectPanel.update(window.getRender());
+        objectPanel.draw(window.getRender());
+        propertiesPanel.update(window.getRender());
+        propertiesPanel.draw(window.getRender());
         window.getRender().display();
     }
     return 0;
