@@ -30,3 +30,18 @@
 *.exe
 *.out
 *.app
+
+# Specific files
+Makefile
+foxyEngine
+.idea
+
+# VCPKG
+vcpkg-manifest-install.log
+vcpkg_installed
+
+# CMake
+CMakeCache.txt
+cmake_install.cmake
+cmake-build-debug
+CMakeFiles
