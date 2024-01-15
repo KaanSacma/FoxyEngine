@@ -11,26 +11,30 @@ enum TypePanel {
     AssetPanel
 };
 
+struct SizeLimit {
+    sf::Vector2f _min;
+    sf::Vector2f _max;
+};
+
 class ViewPanel
 {
 public:
-    ViewPanel(TypePanel panel, sf::Vector2f position, sf::Vector2f size, sf::Color backgroundColor);
+    ViewPanel(TypePanel panel, sf::Vector2f position, sf::Vector2f size, sf::Color backgroundColor, SizeLimit sizeLimit);
     ~ViewPanel();
 
     void draw(sf::RenderWindow &window);
     void update(sf::RenderWindow &window);
     void handleEvent(sf::RenderWindow &window, sf::Event event);
-    void setFocus(bool focus);
-    bool getFocus();
-    void setFocusOnPanel(sf::RenderWindow &window);
-    void setFocusOnPanel(sf::RenderWindow &window, sf::Event event);
-    void setFocusOnPanel(sf::RenderWindow &window, sf::Vector2i mousePosition);
-    void setFocusOnPanel(sf::RenderWindow &window, sf::Vector2i mousePosition, sf::Event event);
 
-    sf::RectangleShape _panel;
+    void setFocusOnPanel(sf::RenderWindow &window);
+
     sf::Vector2f _position;
     sf::Vector2f _size;
     sf::Color _backgroundColor;
     bool _focus;
+    SizeLimit _sizeLimit;
     TypePanel _typePanel;
+
+private:
+    sf::RectangleShape _panel;
 };

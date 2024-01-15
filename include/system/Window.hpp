@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
 
 class Window
 {
@@ -17,5 +16,5 @@ public:
     int _frameRate;
     bool _isRunning;
 private:
-    sf::RenderWindow _render;
+    sf::RenderWindow _screenRender;
 };
