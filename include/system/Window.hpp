@@ -5,10 +5,8 @@
 class Window
 {
 public:
-    Window();
     Window(std::string title, int width, int height, int frameRate);
     ~Window();
-
     sf::RenderWindow &getRender();
 
     sf::Event _event;
